@@ -1,2 +1,3 @@
-# 用pygame实现元胞自动机模拟器 按照生命游戏的规则
-a pygame implementation of cellular automata, with muti-thread technique
+# 用python实现的元胞自动机模拟器 用python实现的GUI
+CA2是用_thread模块实现的双线程，每次打开都有一定几率闪退
+CA3是用threading模块实现的三线程，并进一步封装
