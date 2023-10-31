@@ -59,19 +59,17 @@ def generate():
     for cellular in world:
         x, y = cellular
         search_range = ((x-1,y-1),(x,y-1),(x+1,y-1),(x+1,y),(x+1,y+1),(x,y+1),(x-1,y+1),(x-1,y))
-        count = 0
-        for location in search_range:
-            if world.__contains__(location) and world[location]:
-                count += 1
-        
+        count = sum(
+            1
+            for location in search_range
+            if world.__contains__(location) and world[location]
+        )
         if count == 3 or (count==2 and world[cellular]):
             next_generation_world[cellular] = True
             for space in search_range:
                 if not next_generation_world.__contains__(space):
                     next_generation_world[space] = False
-        elif count == 0:
-            pass
-        else:
+        elif count != 0:
             next_generation_world[cellular] = False
 
     if world == next_generation_world:
